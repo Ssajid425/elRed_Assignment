@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AddQModal } from "./Modal/AddModal";
 import { EditModal } from "./Modal/EditModal";
 import { SeeAllModal } from "./Modal/SeeAllModal";
+import { OrdersListActions } from "./store/OrderList";
 import { OrdersActions } from "./store/Orders";
 import { SuccessToast } from "./ToastMsg";
 
@@ -335,7 +336,10 @@ const Orders = (props) => {
                                     type="button"
                                     class="btn btn-outline-secondary"
                                     style={{ padding: "0.5rem 3rem" }}
-                                    onClick={() => dispatch(OrdersActions.onClearOrder())}
+                                    onClick={() => {
+                                        dispatch(OrdersActions.onClearOrder());
+                                        dispatch(OrdersListActions.onClearOrderList());
+                                    }}
                                 >
                                     Clear Cart
                                 </button>
@@ -346,6 +350,7 @@ const Orders = (props) => {
                                     onClick={() => {
                                         SuccessToast("Your Order has been placed");
                                         dispatch(OrdersActions.onClearOrder());
+                                        dispatch(OrdersListActions.onClearOrderList());
                                     }}
                                 >
                                     Place Order

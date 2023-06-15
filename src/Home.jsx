@@ -39,6 +39,7 @@ const Home = () => {
         };
         fetchData();
     }, []);
+
     const navigate = useNavigate();
     console.log(subCategory);
     return (

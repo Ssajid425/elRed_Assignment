@@ -37,6 +37,7 @@ const AddModalForm = (props) => {
             .max(100, "Maximum Quantity Should be 100")
             .required("Quantity is required"),
     });
+
     const [userForEdit] = useState({
         quantity: undefined,
     });
